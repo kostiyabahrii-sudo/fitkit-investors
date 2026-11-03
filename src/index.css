@@ -124,7 +124,6 @@ ol {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
-  border-top: 1px solid var(--line);
   margin: 0 calc(-1 * var(--gutter));
   padding: 0 var(--gutter);
   font-size: 0.875rem;
