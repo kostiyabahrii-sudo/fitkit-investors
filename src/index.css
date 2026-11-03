@@ -213,7 +213,13 @@ ol {
   width: 100%;
   max-width: var(--max);
   margin: 0 auto;
-  padding: 2.5rem var(--gutter) 3rem;
+  padding: 1.25rem var(--gutter) 3rem; /* phones: heading close to the nav */
+}
+
+@media (min-width: 760px) {
+  .section {
+    padding-top: 2.5rem;
+  }
 }
 
 .narrow {
@@ -511,7 +517,7 @@ ol {
   max-width: var(--max);
   margin: 0 auto;
   min-height: calc(100svh - var(--header-h));
-  padding: 2rem var(--gutter) 1.5rem;
+  padding: 1.25rem var(--gutter) 1.5rem;
   display: flex;
   flex-direction: column;
 }
