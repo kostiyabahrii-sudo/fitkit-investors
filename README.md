@@ -29,16 +29,14 @@ All text, links and images are in `src/content.js`. Images go into `public/`;
 set `src` (e.g. `"/team.jpg"`). While `src` is `null` a labelled placeholder
 box is shown.
 
-Build-time env vars:
-
-- `VITE_WAITLIST_URL` — where “Join waitlist” goes
-- `VITE_STORE_URL` — where “Open in store” goes
+Store, waitlist and LinkedIn links live in `LINKS` in `src/content.js`.
+Optional build-time env var: `VITE_CONTACT_URL` for the footer “Contact us”
+(or set `LINKS.contact` directly).
 
 ## Deploy (Vercel)
 
 Import the repo in Vercel (Root Directory stays empty). Framework preset Vite is detected automatically (build `npm run build`,
-output `dist`). Add `VITE_WAITLIST_URL` and `VITE_STORE_URL` in
-Settings → Environment Variables, then redeploy.
+output `dist`). No env vars are required.
 
 `vercel.json` rewrites every path to `/index.html`, so direct links such as
 `/team` work. Real files (JS, CSS, images) are served before the rewrite.

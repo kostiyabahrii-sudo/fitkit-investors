@@ -7,9 +7,8 @@ export const BRAND = "Fitkit";
 
 export const LINKS = {
   linkedin: "https://www.linkedin.com/company/fitkitcommerce/",
-  // Override at build time with VITE_WAITLIST_URL / VITE_STORE_URL.
-  waitlist: import.meta.env.VITE_WAITLIST_URL || "#",
-  store: import.meta.env.VITE_STORE_URL || "#",
+  waitlist: "https://waitlist-frontend-646k.onrender.com/",
+  store: "https://chromewebstore.google.com/detail/fitkit/johbinipmcknlfoomlbicpkccbambcam",
   // Footer "Contact us". Any link works: https://..., mailto:hi@fitkit.space,
   // a form, Telegram. Can also be set with VITE_CONTACT_URL.
   // While empty, "Contact us" shows as plain text.
