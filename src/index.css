@@ -541,12 +541,10 @@ ol {
   height: 52svh;
 }
 
-/* Real screenshot: keep its own proportions; a hairline frame separates
-   its white UI from the white page. */
+/* Real screenshot: keep its own proportions, no frame (blends into the page). */
 img.shot-extension {
   aspect-ratio: auto;
   max-width: 100%;
-  border: 1px solid var(--line);
 }
 
 .shots {
