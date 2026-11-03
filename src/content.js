@@ -121,8 +121,8 @@ export const PRODUCTS = {
     ],
     cta: "Open in store",
     screenshot: {
-      src: null,
-      alt: "Fitkit browser extension",
+      src: "/extension.jpg",
+      alt: "Fitkit browser extension: pinned items with prices and Buy pin items",
       placeholder: "Extension screenshot",
     },
   },

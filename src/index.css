@@ -542,6 +542,14 @@ ol {
   height: 52svh;
 }
 
+/* Real screenshot: keep its own proportions; a hairline frame separates
+   its white UI from the white page. */
+img.shot-extension {
+  aspect-ratio: auto;
+  max-width: 100%;
+  border: 1px solid var(--line);
+}
+
 .shots {
   gap: 0.75rem;
 }
@@ -608,6 +616,12 @@ ol {
     height: auto;
     width: 100%;
     max-height: calc(100svh - var(--header-h) - 10rem);
+  }
+  img.shot-extension {
+    width: 100%;
+    max-width: 24rem;
+    height: auto;
+    max-height: none;
   }
   .shots {
     gap: 1.25rem;
