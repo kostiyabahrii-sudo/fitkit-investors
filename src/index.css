@@ -96,7 +96,6 @@ ol {
   top: 0;
   z-index: 10;
   background: var(--bg);
-  border-bottom: 1px solid var(--line);
   padding: env(safe-area-inset-top) max(var(--gutter), env(safe-area-inset-right)) 0
     max(var(--gutter), env(safe-area-inset-left));
 }
@@ -350,9 +349,7 @@ ol {
 
 .role {
   margin-top: 0.25rem;
-  font-size: 0.8125rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-style: italic;
 }
 
 /* Tablet and up: portrait on top, two then four columns. */
@@ -416,9 +413,7 @@ ol {
 }
 
 .stage-rule {
-  width: 2.5rem;
-  height: 1.5px;
-  background: var(--ink);
+  display: none; /* phones: no dash, label sits right above its text */
 }
 
 .stage-text {
@@ -446,6 +441,7 @@ ol {
     line-height: 28px;
   }
   .stage-rule {
+    display: block;
     width: 100%;
     height: 28px;
     background: linear-gradient(var(--ink), var(--ink)) center / 100% 1.5px no-repeat;

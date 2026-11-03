@@ -13,7 +13,7 @@ export const LINKS = {
 };
 
 export const ABOUT = {
-  title: "About",
+  title: "Who are we?",
   lead: "Placeholder. One or two sentences on what Fitkit is and why it matters.",
   paragraphs: [
     "Placeholder text. The problem: describe who struggles with what, and how often.",
