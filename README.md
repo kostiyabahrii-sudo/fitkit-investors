@@ -1,5 +1,7 @@
 # Fitkit — investors site
 
+Static site for potential investors: about, team, roadmap + FAQ, products.
+
 Frontend only. React + Vite + React Router. Mobile-first (most visitors come from a QR code).
 
 ## Run
@@ -34,8 +36,7 @@ Build-time env vars:
 
 ## Deploy (Vercel)
 
-Import the repo in Vercel and set **Root Directory** to `investors`.
-Framework preset Vite is detected automatically (build `npm run build`,
+Import the repo in Vercel (Root Directory stays empty). Framework preset Vite is detected automatically (build `npm run build`,
 output `dist`). Add `VITE_WAITLIST_URL` and `VITE_STORE_URL` in
 Settings → Environment Variables, then redeploy.
 
