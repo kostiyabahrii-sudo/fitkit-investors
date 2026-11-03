@@ -41,9 +41,6 @@ export default function Products() {
           </div>
           <Copy product={extension} href={LINKS.store} id="p-extension" />
         </div>
-        <a className="hint" href="#app">
-          {app.name} <span aria-hidden="true">↓</span>
-        </a>
       </section>
 
       {/* Screen 2: description left, two screenshots right */}

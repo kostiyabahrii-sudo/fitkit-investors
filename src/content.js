@@ -134,8 +134,8 @@ export const PRODUCTS = {
     ],
     cta: "Join waitlist",
     screenshots: [
-      { src: null, alt: "Fitkit app, screen 1", placeholder: "App screen 1" },
-      { src: null, alt: "Fitkit app, screen 2", placeholder: "App screen 2" },
+      { src: "/app-1.jpg", alt: "Fitkit app: Shop This Look", placeholder: "App screen 1" },
+      { src: "/app-2.jpg", alt: "Fitkit app: Get This Look checkout", placeholder: "App screen 2" },
     ],
   },
 };
