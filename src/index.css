@@ -401,16 +401,7 @@ ol {
   }
 }
 
-/* No closing line under the last person / last row. */
-.member:last-child {
-  border-bottom: 0;
-}
 
-@media (min-width: 560px) and (max-width: 999px) {
-  .member:nth-last-child(2):nth-child(odd) {
-    border-bottom: 0;
-  }
-}
 
 /* ----- roadmap ----- */
 
@@ -556,8 +547,14 @@ ol {
   flex-direction: column;
 }
 
-.product + .product {
-  padding-top: 2.5rem;
+/* Phones: each product is a full screen, with a divider between them. */
+@media (max-width: 759px) {
+  .product {
+    min-height: calc(100svh - var(--header-h));
+  }
+  .product + .product {
+    border-top: 1px solid var(--line);
+  }
 }
 
 .product-grid {
