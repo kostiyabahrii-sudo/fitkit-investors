@@ -399,8 +399,16 @@ ol {
   .member {
     border-bottom: 0;
   }
-  .members {
-    border-bottom: 1px solid var(--line);
+}
+
+/* No closing line under the last person / last row. */
+.member:last-child {
+  border-bottom: 0;
+}
+
+@media (min-width: 560px) and (max-width: 999px) {
+  .member:nth-last-child(2):nth-child(odd) {
+    border-bottom: 0;
   }
 }
 
