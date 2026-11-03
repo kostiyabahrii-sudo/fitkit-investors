@@ -10,6 +10,10 @@ export const LINKS = {
   // Override at build time with VITE_WAITLIST_URL / VITE_STORE_URL.
   waitlist: import.meta.env.VITE_WAITLIST_URL || "#",
   store: import.meta.env.VITE_STORE_URL || "#",
+  // Footer "Contact us". Any link works: https://..., mailto:hi@fitkit.space,
+  // a form, Telegram. Can also be set with VITE_CONTACT_URL.
+  // While empty, "Contact us" shows as plain text.
+  contact: import.meta.env.VITE_CONTACT_URL || "",
 };
 
 export const ABOUT = {

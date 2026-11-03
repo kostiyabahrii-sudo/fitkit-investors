@@ -79,9 +79,18 @@ export default function App() {
         <span>
           © {new Date().getFullYear()} {BRAND}
         </span>
-        <a href={LINKS.linkedin} target="_blank" rel="noopener noreferrer">
-          LinkedIn ↗
-        </a>
+        {LINKS.contact ? (
+          <a
+            href={LINKS.contact}
+            {...(LINKS.contact.startsWith("http")
+              ? { target: "_blank", rel: "noopener noreferrer" }
+              : {})}
+          >
+            Contact us ↗
+          </a>
+        ) : (
+          <span>Contact us</span>
+        )}
       </footer>
     </>
   );
