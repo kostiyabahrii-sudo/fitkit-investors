@@ -110,7 +110,7 @@ export const FAQ = {
       q: "How can I get in touch?",
       a: [
         "You can reach out to our founders directly via ",
-        { text: "email", href: "mailto:contactfitkit8@gmsail.com" },
+        { text: "email", href: "mailto:contactfitkit8@gmail.com" },
         ", ",
         { text: "WhatsApp", href: "https://wa.me/380501549440" },
         " or through our ",
