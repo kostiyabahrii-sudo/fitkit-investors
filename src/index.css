@@ -403,7 +403,8 @@ ol {
 
 /* ----- roadmap ----- */
 
-.roadmap-screen {
+/* Full-viewport, roadmap stages vertically centered (.stages has flex: 1). */
+.screen {
   min-height: calc(100svh - var(--header-h));
   display: flex;
   flex-direction: column;
@@ -478,12 +479,13 @@ ol {
   }
 }
 
-.roadmap-screen .hint {
+.screen .hint {
   align-self: center;
+  margin-top: auto; /* road to the bottom when content is short */
 }
 
 @media (min-width: 760px) {
-  .roadmap-screen > .h1 {
+  .screen > .h1 {
     width: 100%;
     max-width: 52rem;
     margin: 0 auto;

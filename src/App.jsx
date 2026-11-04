@@ -16,7 +16,7 @@ const NAV = [
 ];
 
 // Router keeps the old scroll position between pages; reset it unless the
-// URL points at an anchor (e.g. /roadmap#faq).
+// URL points at an anchor (e.g. /#faq).
 function useScrollReset() {
   const { pathname, hash } = useLocation();
   useEffect(() => {
