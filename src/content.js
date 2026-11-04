@@ -95,8 +95,8 @@ export const FAQ = {
   title: "FAQ",
   items: [
     {
-      q: "Placeholder question: how does Fitkit make money?",
-      a: "Placeholder answer.",
+      q: "How do you make money?",
+      a: "We take a small service fee (5-20%) on every purchase made through our app, as users buy complete outfits in bulk.",
     },
     {
       q: "Placeholder question: how much are you raising?",
