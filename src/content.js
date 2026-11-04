@@ -17,10 +17,10 @@ export const LINKS = {
 
 export const ABOUT = {
   title: "Who are we?",
-  lead: "Placeholder. One or two sentences on what Fitkit is and why it matters.",
+  lead: "FitKit is a way to turn posts you’ve already saved on Pinterest into complete, order-ready carts in just one click.",
   paragraphs: [
     "Placeholder text. The problem: describe who struggles with what, and how often.",
-    "Placeholder text. The solution: what Fitkit does differently, in plain words.",
+    "Unlike other search solutions our algorithm, made specifically for clothes, instantly identifies exact items, finds available sizes, matches your budget, and ships the full look directly to your door.",
     "Placeholder text. Traction and where we are today: users, waitlist size, partners.",
   ],
 };
@@ -119,8 +119,8 @@ export const PRODUCTS = {
   extension: {
     name: "Browser extension",
     description: [
-      "Placeholder. What the extension does, in one sentence.",
-      "Placeholder. How it works for the user, step by step or in two lines.",
+      "Our Chrome extension lets you instantly find exact items from a Pinterest post and order the entire look (or some items) in just one click.",
+      "Just open a post, and our algorithm will detect the items, find the best prices, and create a ready-to-buy cart in seconds. Automatic purchase coming in next updates.",
     ],
     cta: "Open in store",
     screenshot: {
@@ -132,8 +132,8 @@ export const PRODUCTS = {
   app: {
     name: "iOS app",
     description: [
-      "Placeholder. What the app does, in one sentence.",
-      "Placeholder. What's coming at launch.",
+      "Our iOS app automatically syncs with your Pinterest saves to turn your fashion boards into a 1-click shopping experience, now on mobile.",
+      "Multiple carts, retailer comparisons, native UI and auto checkout coming at launch.",
     ],
     cta: "Join waitlist",
     screenshots: [

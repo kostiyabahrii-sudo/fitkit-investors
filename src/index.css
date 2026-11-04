@@ -445,18 +445,22 @@ ol {
 
 /* Wide: label — text on one row, like the reference. */
 @media (min-width: 760px) {
+  /* One shared grid so every row's dash starts at the same x:
+     the label column hugs the widest label ("Later"), no dead whitespace. */
   .stages {
     width: 100%;
     max-width: 52rem;
     margin: 3rem auto;
-    gap: 3.5rem;
+    display: grid;
+    grid-template-columns: auto 3rem 1fr;
+    align-items: start;
+    column-gap: 1.25rem;
+    row-gap: 3.5rem;
   }
   /* Every cell is one text line (28px) tall at the top, so the dash sits
      on the first line even when the text wraps. */
   .stage {
-    grid-template-columns: 5.5rem 3rem 1fr;
-    align-items: start;
-    column-gap: 1.25rem;
+    display: contents;
   }
   .stage-label {
     line-height: 28px;
@@ -490,7 +494,6 @@ ol {
 
 .faq {
   padding-top: 3rem;
-  border-top: 1px solid var(--line);
 }
 
 .faq-list {
