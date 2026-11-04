@@ -105,9 +105,6 @@ export const FAQ = {
         { to: "/products", text: "our product page" },
         ".",
       ],
-    {
-      q: "Placeholder question: who are your competitors?",
-      a: "Placeholder answer.",
     },
     {
       q: "Placeholder question: how can I get in touch?",
