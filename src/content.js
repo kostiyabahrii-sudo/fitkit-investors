@@ -95,12 +95,12 @@ export const FAQ = {
   title: "FAQ",
   items: [
     {
-      q: "How do you make money?",
+      q: "How do we make money?",
       a: "We take a small service fee (5-20%) on every purchase made through our app, as users buy complete outfits in bulk.",
     },
     {
-      q: "Placeholder question: how much are you raising?",
-      a: "Placeholder answer.",
+      q: "Who are our competitors?",
+      a: "Platforms like Pinterest and LTK offer outfit discovery through the feed, while FitKit is the only service that provides a 1-click purchase experience on what's already been discovered through Pinterest. For more information, visit out product page.",
     },
     {
       q: "Placeholder question: who are your competitors?",
