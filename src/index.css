@@ -114,7 +114,7 @@ ol {
 .brand img {
   width: 34px;
   height: 34px;
-  margin-top: -4px; /* the cat sits a little low next to the wordmark */
+  margin-top: -9px; /* the cat sits a little low next to the wordmark */
 }
 
 /* Mobile: nav is its own full-width row under the brand. No hamburger:
