@@ -283,8 +283,6 @@ ol {
 
 .next {
   margin-top: 2.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--line);
   display: flex;
   flex-wrap: wrap;
   gap: 0 2rem;
