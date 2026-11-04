@@ -19,9 +19,8 @@ export const ABOUT = {
   title: "Who are we?",
   lead: "FitKit is a way to turn posts you’ve already saved on Pinterest into complete, order-ready carts in just one click.",
   paragraphs: [
-    "Placeholder text. The problem: describe who struggles with what, and how often.",
+    "We're first to offer one-click purchase of any outfits you'd see on social media.",
     "Unlike other search solutions our algorithm, made specifically for clothes, instantly identifies exact items, finds available sizes, matches your budget, and ships the full look directly to your door.",
-    "Placeholder text. Traction and where we are today: users, waitlist size, partners.",
   ],
 };
 

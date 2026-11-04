@@ -9,7 +9,7 @@ export default function About() {
       <h1 className="h1">{ABOUT.title}</h1>
       <p className="lead">{ABOUT.lead}</p>
       {ABOUT.paragraphs.map((text, i) => (
-        <p className="body" key={i}>
+        <p className={i <= 1 ? "lead" : "body"} key={i}>
           {text}
         </p>
       ))}
