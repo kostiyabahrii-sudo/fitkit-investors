@@ -17,11 +17,11 @@ export const LINKS = {
 
 export const ABOUT = {
   title: "Who are we?",
-  lead: "Placeholder. One or two sentences on what Fitkit is and why it matters.",
+  lead: "FitKit is a fashion-tech assistant that turns outfit inspiration from Pinterest into complete, order-ready carts in just one click.",
   paragraphs: [
-    "Placeholder text. The problem: describe who struggles with what, and how often.",
-    "Placeholder text. The solution: what Fitkit does differently, in plain words.",
-    "Placeholder text. Traction and where we are today: users, waitlist size, partners.",
+    "Young shoppers spend an average of two hours manually searching for clothes they see on social media, often without success.",
+    "Our custom search algorithm instantly identifies exact items, finds available sizes, matches your budget, and ships the full look directly to your door.",
+    "We currently have a working MVP in the Chrome Web Store, mobile apps (iOS and Android) in active development, and a growing waitlist of early adopters ready for seamless shopping.",
   ],
 };
 
@@ -96,20 +96,20 @@ export const FAQ = {
   title: "FAQ",
   items: [
     {
-      q: "Placeholder question: how does Fitkit make money?",
-      a: "Placeholder answer.",
+      q: "How does FitKit make money?",
+      a: "We take a small service fee (5-20%) on every purchase made through our app, as users buy complete outfits in bulk.",
     },
     {
-      q: "Placeholder question: how much are you raising?",
-      a: "Placeholder answer.",
+      q: "How much are you raising?",
+      a: "We are currently raising a $4,000 pre-seed round to fund marketing, server infrastructure, app store launches, and legal setup for the next 6 months.",
     },
     {
-      q: "Placeholder question: who are your competitors?",
-      a: "Placeholder answer.",
+      q: "Who are your competitors?",
+      a: "While platforms like Pinterest and LTK offer inspiration, FitKit is the only service that provides a 1-click checkout for entire outfits with integrated budget matching.",
     },
     {
-      q: "Placeholder question: how can I get in touch?",
-      a: "Placeholder answer.",
+      q: "How can I get in touch?",
+      a: "You can reach out to our founders directly via email or through our LinkedIn profiles linked in the navigation bar.",
     },
   ],
 };
@@ -119,8 +119,8 @@ export const PRODUCTS = {
   extension: {
     name: "Browser extension",
     description: [
-      "Placeholder. What the extension does, in one sentence.",
-      "Placeholder. How it works for the user, step by step or in two lines.",
+      "Our Chrome extension lets you select an outfit post, instantly find exact items and prices, and order the entire look (or singular item) in just one click.",
+      "Just open an image of an outfit, and our algorithm will detect the items, find the best prices, and create a ready-to-buy cart in seconds.",
     ],
     cta: "Open in store",
     screenshot: {
@@ -132,8 +132,8 @@ export const PRODUCTS = {
   app: {
     name: "iOS app",
     description: [
-      "Placeholder. What the app does, in one sentence.",
-      "Placeholder. What's coming at launch.",
+      "The FitKit iOS app automatically syncs with your Pinterest saves to turn your fashion boards into a 1-click shopping experience.",
+      "At launch, you will get automatic outfit recognition, budget matching, and seamless direct-to-door delivery.",
     ],
     cta: "Join waitlist",
     screenshots: [
