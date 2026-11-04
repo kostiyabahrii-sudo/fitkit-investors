@@ -539,6 +539,12 @@ ol {
   color: var(--muted);
 }
 
+/* Inline link inside an FAQ answer ("our product page"). */
+.faq-item .body a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* ----- products: two screens ----- */
 
 .product {

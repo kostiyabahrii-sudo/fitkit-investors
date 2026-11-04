@@ -100,8 +100,11 @@ export const FAQ = {
     },
     {
       q: "Who are our competitors?",
-      a: "Platforms like Pinterest and LTK offer outfit discovery through the feed, while FitKit is the only service that provides a 1-click purchase experience on what's already been discovered through Pinterest. For more information, visit out product page.",
-    },
+      a: [
+        "Platforms like Pinterest and LTK offer outfit discovery through the feed, while FitKit is the only service that provides a 1-click purchase experience on what's already been discovered through Pinterest. For more information, visit ",
+        { to: "/products", text: "our product page" },
+        ".",
+      ],
     {
       q: "Placeholder question: who are your competitors?",
       a: "Placeholder answer.",

@@ -33,7 +33,18 @@ export default function About() {
                 <span>{item.q}</span>
                 <span className="faq-sign" aria-hidden="true" />
               </summary>
-              <p className="body">{item.a}</p>
+              <p className="body">
+                {(typeof item.a === "string" ? [item.a] : item.a).map(
+                  (part, j) =>
+                    typeof part === "string" ? (
+                      part
+                    ) : (
+                      <Link to={part.to} key={j}>
+                        {part.text}
+                      </Link>
+                    ),
+                )}
+              </p>
             </details>
           ))}
         </div>
