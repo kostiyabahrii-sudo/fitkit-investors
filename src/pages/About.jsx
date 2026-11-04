@@ -35,14 +35,27 @@ export default function About() {
               </summary>
               <p className="body">
                 {(typeof item.a === "string" ? [item.a] : item.a).map(
-                  (part, j) =>
-                    typeof part === "string" ? (
-                      part
-                    ) : (
-                      <Link to={part.to} key={j}>
+                  (part, j) => {
+                    if (typeof part === "string") return part;
+                    if (part.to) {
+                      return (
+                        <Link to={part.to} key={j}>
+                          {part.text}
+                        </Link>
+                      );
+                    }
+                    return (
+                      <a
+                        href={part.href}
+                        key={j}
+                        {...(part.href.startsWith("mailto:")
+                          ? {}
+                          : { target: "_blank", rel: "noopener noreferrer" })}
+                      >
                         {part.text}
-                      </Link>
-                    ),
+                      </a>
+                    );
+                  },
                 )}
               </p>
             </details>

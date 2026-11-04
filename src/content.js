@@ -107,8 +107,16 @@ export const FAQ = {
       ],
     },
     {
-      q: "Placeholder question: how can I get in touch?",
-      a: "Placeholder answer.",
+      q: "How can I get in touch?",
+      a: [
+        "You can reach out to our founders directly via ",
+        { text: "email", href: "mailto:contactfitkit8@gmsail.com" },
+        ", ",
+        { text: "WhatsApp", href: "https://wa.me/380501549440" },
+        " or through our ",
+        { text: "LinkedIn", href: LINKS.linkedin },
+        " profiles linked in the navigation bar.",
+      ],
     },
   ],
 };
