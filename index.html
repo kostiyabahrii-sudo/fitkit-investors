@@ -4,6 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#ffffff" />
+    <!-- Theme applied before first paint (shared by the whole site, the
+         /for-brands section included): the saved choice, else the system's. -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("fitkit-theme");
+          var dark = saved
+            ? saved === "dark"
+            : window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (dark) document.documentElement.dataset.theme = "dark";
+        } catch (e) {}
+      })();
+    </script>
     <meta name="description" content="Fitkit: roadmap, team and products for investors." />
 
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />

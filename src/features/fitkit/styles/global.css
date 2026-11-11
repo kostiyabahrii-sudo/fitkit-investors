@@ -1,0 +1,222 @@
+/*
+ * Fitkit for brands — design tokens and base styles.
+ *
+ * Scoped to `.fk`, the section's wrapper (FitkitApp.tsx): the main site shares
+ * this document, so the tokens and the element rules below live on the
+ * wrapper instead of :root / html / body and never reach the main pages.
+ * `:where(.fk)` keeps each element rule at the specificity it had unscoped,
+ * so component classes still win over it exactly as in the original. The
+ * theme attribute on <html> is shared with the main site on purpose — one
+ * Theme switch for the whole site.
+ *
+ * Two palettes, same page: warm paper with near-black text, and its night cut
+ * — the same warmth read as a dark room rather than a lit sheet. Every colour
+ * on the page comes through these tokens, so the switch is a single attribute
+ * on <html> (set by the top bar's Theme button, and before first paint by the
+ * inline script in index.html).
+ */
+
+.fk {
+  color-scheme: light;
+
+  /* Surfaces — warm, paper-like. Never pure white. */
+  --paper: #faf8f5;
+  --paper-tint: #f4efe7;
+
+  /* Text — warm near-black, plus a muted grade for secondary UI. */
+  --ink: #14110f;
+  --ink-soft: #5d554d;
+  --hairline: rgba(20, 17, 15, 0.09);
+
+  /* Accent: a light pink. It carries the CTA, the highlights and the veils.
+     Two grades, because one pink cannot do both jobs: --clay is the surface
+     (a fill, with --on-clay set on top of it), and --clay-ink is the same hue
+     taken down far enough to be legible as 1px rules, glyphs and type on
+     paper. Never set --clay on text, and never fill with --clay-ink. */
+  --clay: #f3b6c8;
+  --clay-deep: #e79fb5;
+  --clay-ink: #a83d5b;
+  --clay-veil: rgba(243, 182, 200, 0.42);
+  /* What is written on a --clay surface. Dark in both palettes: the accent is
+     a light pink under either light. */
+  --on-clay: #1c1013;
+
+  /* The floating dock's outline — grey rather than warm, so the bar reads as
+     chrome sitting over the page instead of another paper element. */
+  --dock-line: rgba(58, 54, 50, 0.16);
+  /* Same edge, drawn a step harder for when the dock is standing over imagery
+     rather than over paper. */
+  --dock-line-lifted: rgba(58, 54, 50, 0.26);
+
+  /* The halo behind the shopper's button. Tinted with the accent on paper,
+     where a white glow on a near-white ground would be invisible. */
+  --buy-glow: rgba(243, 182, 200, 0.85);
+  /* The light thrown off the brand button's sides on hover — a brighter, more
+     saturated cut of the accent than the surface it comes from. */
+  --cta-glow: rgba(255, 118, 168, 0.55);
+
+  /* The top bar's backdrop once the page has scrolled under it — the paper
+     surface, held just short of opaque. */
+  --paper-veil: rgba(250, 248, 245, 0.82);
+  /* Depth under the CTA. Warm on paper, and pulled back on dark, where a drop
+     shadow reads as grime rather than lift. */
+  --cta-shadow: 0 1px 2px rgba(120, 44, 68, 0.14), 0 10px 26px -14px rgba(120, 44, 68, 0.5);
+  --cta-shadow-hover: 0 2px 4px rgba(120, 44, 68, 0.16), 0 20px 40px -18px rgba(120, 44, 68, 0.6);
+  --cta-shadow-press: 0 1px 2px rgba(120, 44, 68, 0.2), 0 6px 16px -12px rgba(120, 44, 68, 0.44);
+
+  /* Type. Fraunces (display serif) carries headlines only; Inter (grotesk)
+     carries every piece of UI chrome and body copy. Do not cross the two. */
+  --serif: 'Fraunces Variable', 'Newsreader', Georgia, 'Times New Roman', serif;
+  /* The reading serif. Fraunces is the site's voice, but the hero headline is
+     the one place where the type has to be read at a glance before it is
+     admired, so the headline is set in Newsreader — a text face with an optical
+     size axis, quieter than Fraunces without being a system serif. */
+  --serif-text: 'Newsreader Variable', 'Newsreader', Georgia, 'Times New Roman', serif;
+  --sans: 'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
+    sans-serif;
+
+  /* Layout */
+  --page-x: clamp(20px, 4.6vw, 68px);
+  --page-max: 1520px;
+
+  /* Masonry strip gutter — the app feed uses a hairline gutter; the landing
+     page opens it up a little so the grid reads as an editorial spread. */
+  --feed-gutter: 12px;
+  --card-radius: 14px;
+}
+
+/*
+ * Night cut. Not the same warmth turned down: the day palette is warm paper,
+ * and the night one is a cold near-black — the ink becomes the surface, the
+ * paper becomes the type, and the accent keeps its value across both, which is
+ * what the two ink grades are for.
+ *
+ * Only colour tokens change here. Layout, type and motion are shared, so the
+ * two themes are the same page under different light.
+ */
+:root[data-theme='dark'] .fk {
+  color-scheme: dark;
+
+  /* Cold rather than warm: a blue-grey near-black, so the night page reads as
+     screen-lit instead of candle-lit. The accent is the only warmth left on it,
+     which is what makes the pink carry. */
+  --paper: #0d0f12;
+  --paper-tint: #171a20;
+
+  --ink: #eef1f5;
+  --ink-soft: #99a3b0;
+  --hairline: rgba(238, 241, 245, 0.12);
+
+  /* The pink holds its value on the night palette — it is already light, so it
+     is the ink grade that changes, up to the surface pink itself. */
+  --clay: #f0aec2;
+  --clay-deep: #e598ae;
+  --clay-ink: #f0aec2;
+  --clay-veil: rgba(240, 174, 194, 0.22);
+  --on-clay: #19100f;
+
+  --dock-line: rgba(238, 241, 245, 0.16);
+  --dock-line-lifted: rgba(238, 241, 245, 0.26);
+
+  /* On the night palette the button's own white is the light. */
+  --buy-glow: rgba(246, 250, 255, 0.55);
+  --cta-glow: rgba(255, 132, 178, 0.62);
+
+  --paper-veil: rgba(13, 15, 18, 0.78);
+  /* Almost nothing: on a dark ground the button's own colour is the lift. */
+  --cta-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --cta-shadow-hover: 0 4px 18px -8px rgba(255, 132, 178, 0.45);
+  --cta-shadow-press: 0 1px 2px rgba(0, 0, 0, 0.55);
+}
+
+@media (max-width: 760px) {
+  .fk {
+    --feed-gutter: 8px;
+    --card-radius: 11px;
+  }
+}
+
+:where(.fk),
+:where(.fk) *,
+:where(.fk) *::before,
+:where(.fk) *::after {
+  box-sizing: border-box;
+}
+
+html:has(.fk) {
+  scroll-behavior: smooth;
+}
+
+/* The proof strip is full-bleed and slightly over-wide while it parallaxes;
+   nothing in this section ever scrolls sideways. */
+body:has(.fk) {
+  overflow-x: hidden;
+}
+
+.fk {
+  min-height: 100vh;
+  min-height: 100svh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
+  font-synthesis-weight: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* clip, not hidden: hidden would make this a scroll container and break the
+     story's sticky stage. */
+  overflow-x: clip;
+}
+
+:where(.fk) img {
+  display: block;
+  max-width: 100%;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+:where(.fk) a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:where(.fk) h1,
+:where(.fk) h2,
+:where(.fk) p {
+  margin: 0;
+}
+
+:where(.fk) ::selection {
+  background: var(--clay-veil);
+}
+
+/*
+ * The focus ring follows the shape of what it is ringing: the radius here is
+ * only the default for elements that have none of their own (a link in a run
+ * of text). Anything with a shape of its own — the buttons, the dock — sets
+ * --focus-radius to it, so a focused control never squares off while focused.
+ */
+:where(.fk) :focus-visible {
+  outline: 2px solid var(--clay-ink);
+  outline-offset: 4px;
+  border-radius: var(--focus-radius, 3px);
+}
+
+:where(.fk) .page {
+  position: relative;
+  width: 100%;
+}
+
+:where(.fk) .shell {
+  width: 100%;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding-inline: var(--page-x);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:has(.fk) {
+    scroll-behavior: auto;
+  }
+}

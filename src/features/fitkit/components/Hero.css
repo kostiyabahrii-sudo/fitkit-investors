@@ -1,0 +1,141 @@
+.hero {
+  position: relative;
+  /* Above the strip: the imagery slides up underneath the copy and dissolves
+     into it, so the copy has to own the higher layer. */
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  padding-inline: var(--page-x);
+  /* Generous, and asymmetric: more air under the headline than over it, since
+     the strip is pulled up into the bottom of that space and needs room to
+     dissolve before it reaches the CTA. */
+  /* The dock is fixed, so the top of this padding is also the page's clearance
+     under it — see TopBar.css. */
+  padding-block: clamp(98px, 13vh, 150px) clamp(104px, 17vh, 196px);
+  pointer-events: none;
+}
+
+.hero__copy {
+  width: 100%;
+  max-width: 1120px;
+  text-align: center;
+  /* The section ignores pointer events so the strip behind it is never blocked;
+     the copy itself takes them back for the CTA and text selection. */
+  pointer-events: auto;
+}
+
+.hero__headline {
+  /* The reading serif, not the display one: this is the sentence the page has
+     to be understood by. Newsreader is set at a display optical size and half a
+     step heavier than its text weight, which keeps it from thinning out at
+     these sizes. */
+  font-family: var(--serif-text);
+  font-variation-settings: 'opsz' 60;
+  font-weight: 500;
+  /* Newsreader sets appreciably wider than Fraunces at the same size, so the
+     scale is pulled back to keep both written lines unbroken — see HEADLINE. */
+  font-size: clamp(2.4rem, 5.5vw, 4.6rem);
+  line-height: 1.06;
+  letter-spacing: -0.011em;
+  text-wrap: balance;
+}
+
+.hero__line {
+  display: block;
+}
+
+/* Inline-block so the box hugs the text rather than the line. */
+.hero__line-inner {
+  display: inline-block;
+}
+
+/*
+ * The line as it resolves. The set type is left in the flow with its ink turned
+ * off, purely to hold the box at the width the sentence will end up at, and the
+ * dissolve is laid over the middle of it — the noise glyphs are wider than the
+ * letters they stand in for, and a centred headline that is measured off them
+ * slides sideways for the whole of the churn.
+ */
+.hero__line-inner--set {
+  position: relative;
+}
+
+.hero__line-ghost {
+  visibility: hidden;
+}
+
+.hero__line-inner--set .scramble {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  /* The rail's floor is for a short label in a narrow column; a headline sets
+     its own. */
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.hero__action {
+  margin-top: clamp(34px, 4.4vh, 52px);
+}
+
+@media (max-width: 760px) {
+  .hero {
+    padding-block: clamp(86px, 12vh, 112px) clamp(76px, 12vh, 120px);
+  }
+
+  /* Sized so both written lines still hold as single lines down to a 320px
+     screen — the layout rescales, it does not re-break. */
+  .hero__headline {
+    font-size: clamp(1.2rem, 6.2vw, 2.45rem);
+    line-height: 1.1;
+    letter-spacing: -0.008em;
+    /* `balance` would re-wrap one line and not the other at these widths. */
+    text-wrap: normal;
+  }
+
+  .hero__action {
+    margin-top: 40px;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   The hero on the story's stage.
+
+   Below the split width the stage is the screen and the copy simply stands in
+   the middle of it, with the feed band behind. At and above it the feed is two
+   panels pinned to the screen edges (see ScrollStory.css) and the copy has to
+   hold itself clear of both.
+   --------------------------------------------------------------------------- */
+
+/* The stage centres the copy in the screen, so the asymmetric block padding
+   above — which was there to make room for a band pulled up underneath — is
+   taken back at every width. */
+.story__hero .hero {
+  padding-block: clamp(40px, 6vh, 84px);
+  width: 100%;
+}
+
+/* Mirrors the `min-width` in hooks/useSplitLayout.ts. */
+@media (min-width: 1240px) {
+  .story__hero .hero__copy {
+    /* Held clear of the panels: the two of them take a quarter of the screen
+       each, and the copy keeps its distance from both inner edges. */
+    max-width: min(760px, calc(100vw - 2 * var(--panel-width) - 96px));
+  }
+
+  .story__hero .hero__headline {
+    /* Set to the column it now lives in rather than to the page, so both
+       written lines still hold as single lines between the panels. */
+    font-size: clamp(2.35rem, 3.05vw, 3.35rem);
+    letter-spacing: -0.009em;
+  }
+
+  .fk {
+    /* Two columns wide, and never so wide that the pair crowds the copy out of
+       the middle third of the screen. Mirrors `layout()` in ScrollStory.tsx —
+       the panels themselves are sized there, in script, because the genie has
+       to know how far they travel. */
+    --panel-width: clamp(300px, 24vw, 520px);
+  }
+}

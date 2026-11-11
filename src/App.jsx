@@ -1,18 +1,28 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Navigate, NavLink, Route, Routes, useLocation } from "react-router-dom";
 import { BRAND, LINKS } from "./content.js";
+import { useTheme } from "./theme.js";
 import About from "./pages/About.jsx";
 import Team from "./pages/Team.jsx";
 import Roadmap from "./pages/Roadmap.jsx";
 import Products from "./pages/Products.jsx";
 
-// Order matches the nav: About | Team | Roadmap | LinkedIn | Products
+// FitKit for brands: its own section with its own frame, loaded only when
+// someone opens /for-brands (see src/features/fitkit).
+const FitkitApp = lazy(() => import("./features/fitkit/FitkitApp.tsx"));
+const FOR_BRANDS = "/for-brands";
+
+// Order matches the nav: About | Team | Roadmap | LinkedIn | Products | For brands
+// `wideOnly`: shown in the nav row on wider screens only; on phones the same
+// link sits in the logo row instead (see .top-extra), so the nav row keeps
+// its five items.
 const NAV = [
   { label: "About", to: "/" },
   { label: "Team", to: "/team" },
   { label: "Roadmap", to: "/roadmap" },
   { label: "LinkedIn", href: LINKS.linkedin },
   { label: "Products", to: "/products" },
+  { label: "For brands", to: FOR_BRANDS, wideOnly: true },
 ];
 
 // Router keeps the old scroll position between pages; reset it unless the
@@ -30,6 +40,17 @@ function useScrollReset() {
 
 export default function App() {
   useScrollReset();
+  const { pathname } = useLocation();
+  const [theme, toggleTheme] = useTheme();
+
+  // /for-brands/* is FitKit's section, with its own bar and footer.
+  if (pathname === FOR_BRANDS || pathname.startsWith(`${FOR_BRANDS}/`)) {
+    return (
+      <Suspense fallback={null}>
+        <FitkitApp />
+      </Suspense>
+    );
+  }
 
   return (
     <>
@@ -41,7 +62,10 @@ export default function App() {
 
         <nav className="nav" aria-label="Main">
           {NAV.map((item, i) => (
-            <span className="nav-item" key={item.label}>
+            <span
+              className={item.wideOnly ? "nav-item nav-item--wide" : "nav-item"}
+              key={item.label}
+            >
               {i > 0 && (
                 <span className="sep" aria-hidden="true">
                   |
@@ -62,6 +86,21 @@ export default function App() {
             </span>
           ))}
         </nav>
+
+        <div className="top-extra">
+          <NavLink to={FOR_BRANDS} className="top-extra__brands">
+            For brands
+          </NavLink>
+          <button
+            type="button"
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-pressed={theme === "dark"}
+            aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
+          >
+            Theme <span aria-hidden="true">{theme === "dark" ? "☾" : "☀"}</span>
+          </button>
+        </div>
       </header>
 
       <main>

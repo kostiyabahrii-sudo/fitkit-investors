@@ -41,6 +41,32 @@ output `dist`). No env vars are required.
 `vercel.json` rewrites every path to `/index.html`, so direct links such as
 `/team` work. Real files (JS, CSS, images) are served before the rewrite.
 
+## For brands (`/for-brands`)
+
+FitKit's brand landing, moved in from `fitkit-infra/fitkit-landing` with its
+original TypeScript pages and components. Everything lives in
+`src/features/fitkit/`, assets in `public/fitkit/`.
+
+| Route | Page |
+| --- | --- |
+| `/for-brands` | Landing (the scroll story) |
+| `/for-brands/creators` | How listing works; where "List your brand" leads |
+| `/for-brands/policies` | Privacy policy of the browser extension |
+
+- Loaded lazily from `src/App.jsx`: the main pages never download it.
+- Has its own top bar and footer; "Main page" in its bar goes back to `/`.
+- Its styles are scoped to the `.fk` wrapper, and the main site's resets skip
+  `.fk`, so neither side affects the other.
+- `npm run typecheck` checks the TypeScript part; `npm run build` runs it too.
+- The Roadmap page of the original landing was dropped.
+
+## Theme
+
+Light / dark for the whole site: the Theme button (main header and the
+FitKit bar) sets `<html data-theme="dark">` and remembers the choice in
+`localStorage` (`fitkit-theme`). Without a saved choice the system setting is
+used. `index.html` applies it before first paint.
+
 ## Style notes
 
 - Headings: Newsreader (Google Fonts). Body: SF on Apple devices, Helvetica fallback.
