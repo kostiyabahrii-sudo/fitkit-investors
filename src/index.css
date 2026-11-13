@@ -1,6 +1,4 @@
-/* Fitkit investors. White page, black text, sharp corners, no animations.
-   Dark theme: the same tokens under :root[data-theme="dark"] (switch in the
-   header, shared with the /for-brands section). */
+/* Fitkit investors. White page, black text, sharp corners, no animations. */
 
 :root {
   color-scheme: light;
@@ -14,16 +12,6 @@
   --serif: "Newsreader", Georgia, "Times New Roman", serif;
   --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
     "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-/* Night cut: the ink becomes the surface. Same near-black as the
-   /for-brands section's dark theme, so the two halves of the site match. */
-:root[data-theme="dark"] {
-  color-scheme: dark;
-  --ink: #eef1f5;
-  --muted: #99a3b0;
-  --line: #eef1f5;
-  --bg: #0d0f12;
 }
 
 @media (min-width: 760px) {
@@ -239,9 +227,8 @@ main {
   }
 }
 
-/* "For brands" + Theme. Phones: top right of the logo row, so the nav row
-   keeps its five items. Wider: Theme alone on the right of the bar, and
-   "For brands" moves into the nav after Products. */
+/* "For brands" on phones: top right of the logo row, so the nav row keeps
+   its five items. Wider screens: it sits in the nav after Products instead. */
 .top-extra {
   position: absolute;
   top: env(safe-area-inset-top);
@@ -253,22 +240,10 @@ main {
   font-size: 0.875rem;
 }
 
-.top-extra a,
-.theme-toggle {
+.top-extra a {
   display: inline-flex;
   align-items: center;
   min-height: 40px;
-}
-
-.theme-toggle {
-  gap: 0.3em;
-  padding: 0;
-  border: 0;
-  background: none;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
 }
 
 .nav-item--wide {
@@ -277,13 +252,7 @@ main {
 
 @media (min-width: 760px) {
   .top-extra {
-    position: static;
-    height: auto;
-    justify-self: end;
-    font-size: 0.9375rem;
-  }
-  .top-extra__brands {
-    display: none !important;
+    display: none;
   }
   .nav-item--wide {
     display: flex;
@@ -291,19 +260,11 @@ main {
 }
 
 @media (hover: hover) {
-  .top-extra a:hover,
-  .theme-toggle:hover {
+  .top-extra a:hover {
     text-decoration: underline;
     text-decoration-thickness: 1.5px;
     text-underline-offset: 5px;
   }
-}
-
-/* The logo is black art on white: on the dark theme it is inverted and the
-   (now black) square is blended away into the background. */
-:root[data-theme="dark"] .brand img {
-  filter: invert(1);
-  mix-blend-mode: lighten;
 }
 
 /* ----- shared type + layout ----- */

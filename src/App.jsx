@@ -1,7 +1,6 @@
 import { lazy, Suspense, useEffect } from "react";
 import { Navigate, NavLink, Route, Routes, useLocation } from "react-router-dom";
 import { BRAND, LINKS } from "./content.js";
-import { useTheme } from "./theme.js";
 import About from "./pages/About.jsx";
 import Team from "./pages/Team.jsx";
 import Roadmap from "./pages/Roadmap.jsx";
@@ -41,7 +40,6 @@ function useScrollReset() {
 export default function App() {
   useScrollReset();
   const { pathname } = useLocation();
-  const [theme, toggleTheme] = useTheme();
 
   // /for-brands/* is FitKit's section, with its own bar and footer.
   if (pathname === FOR_BRANDS || pathname.startsWith(`${FOR_BRANDS}/`)) {
@@ -91,15 +89,6 @@ export default function App() {
           <NavLink to={FOR_BRANDS} className="top-extra__brands">
             For brands
           </NavLink>
-          <button
-            type="button"
-            className="theme-toggle"
-            onClick={toggleTheme}
-            aria-pressed={theme === "dark"}
-            aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
-          >
-            Theme <span aria-hidden="true">{theme === "dark" ? "☾" : "☀"}</span>
-          </button>
         </div>
       </header>
 

@@ -62,10 +62,11 @@ original TypeScript pages and components. Everything lives in
 
 ## Theme
 
-Light / dark for the whole site: the Theme button (main header and the
-FitKit bar) sets `<html data-theme="dark">` and remembers the choice in
-`localStorage` (`fitkit-theme`). Without a saved choice the system setting is
-used. `index.html` applies it before first paint.
+The main pages are always light. The `/for-brands` section keeps its own
+light / dark switch (Theme in its bar), as in the original landing: it sets
+`<html data-theme="dark">`, which only the section's styles read, and
+remembers the choice in `localStorage` (`fitkit-theme`). `index.html` applies
+it before first paint.
 
 ## Style notes
 

@@ -6,8 +6,8 @@
  * wrapper instead of :root / html / body and never reach the main pages.
  * `:where(.fk)` keeps each element rule at the specificity it had unscoped,
  * so component classes still win over it exactly as in the original. The
- * theme attribute on <html> is shared with the main site on purpose — one
- * Theme switch for the whole site.
+ * theme attribute on <html> is read only by this section; the main pages
+ * stay light whatever it says.
  *
  * Two palettes, same page: warm paper with near-black text, and its night cut
  * — the same warmth read as a dark room rather than a lit sheet. Every colour
