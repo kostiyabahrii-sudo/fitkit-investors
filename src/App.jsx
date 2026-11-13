@@ -11,7 +11,7 @@ import Products from "./pages/Products.jsx";
 const FitkitApp = lazy(() => import("./features/fitkit/FitkitApp.tsx"));
 const FOR_BRANDS = "/for-brands";
 
-// Order matches the nav: About | Team | Roadmap | LinkedIn | Products | For brands
+// Order matches the nav: About | Team | Roadmap | Products | For brands | LinkedIn
 // `wideOnly`: shown in the nav row on wider screens only; on phones the same
 // link sits in the logo row instead (see .top-extra), so the nav row keeps
 // its five items.
@@ -19,9 +19,9 @@ const NAV = [
   { label: "About", to: "/" },
   { label: "Team", to: "/team" },
   { label: "Roadmap", to: "/roadmap" },
-  { label: "LinkedIn", href: LINKS.linkedin },
   { label: "Products", to: "/products" },
   { label: "For brands", to: FOR_BRANDS, wideOnly: true },
+  { label: "LinkedIn", href: LINKS.linkedin },
 ];
 
 // Router keeps the old scroll position between pages; reset it unless the
