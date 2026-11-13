@@ -5,7 +5,7 @@
   --ink: #111111;
   --muted: #555555;
   --line: #111111;
-  --bg: #ffffff;
+  --bg: #faf8f5; /* warm paper, the same as the /for-brands section */
   --gutter: 1rem;
   --max: 72rem;
   --header-h: 76px; /* mobile: brand row 40 + nav row 36 */
@@ -110,6 +110,15 @@ main {
   font-size: 1.625rem;
   line-height: 1;
   letter-spacing: -0.01em;
+}
+
+/* Pictures with a white background (logo, team cut-outs, the extension
+   screenshot): multiply turns their white into the page's paper colour, so
+   they sit on the page instead of showing as white boxes. */
+.brand img,
+img.portrait,
+img.shot-extension {
+  mix-blend-mode: multiply;
 }
 
 .brand img {
